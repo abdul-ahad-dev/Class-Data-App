@@ -9,32 +9,25 @@ document.getElementById('submit-btn').addEventListener('click', getInfo);
 document.getElementById('delete-btn').addEventListener('click', deleteInfo);
 
 
-function loadStudentData()
-{
-
+function loadStudentData() {
     let studentDataContainer = document.getElementById('student-data-container');
     studentDataContainer.innerHTML = ''; 
-
 
     studentInformation.forEach((student, index) =>
     {
         studentDataContainer.innerHTML += `
-            <tr>
-                <td class="p-3 border border-gray-500">${index + 1}</td>
-                <td class="p-3 border border-gray-500">${student.studentName}</td>
-                <td class="p-3 border border-gray-500">${student.studentRollNo}</td>
-                <td class="p-3 border border-gray-500">${student.studentClassNSection}</td>
-                <td class="p-3 border border-gray-500">${student.studentCourse}</td>
+            <tr class="border-t-2">
+                <td class="p-3">${index + 1}</td>
+                <td class="p-3">${student.studentName}</td>
+                <td class="p-3">${student.studentRollNo}</td>
+                <td class="p-3">${student.studentClassNSection}</td>
+                <td class="p-3">${student.studentCourse}</td>
             </tr>
         `;
-
-        generateRollno = Math.max(generateRollno, student.studentRollNo + 1);
-
     });
 }
 
-function getInfo()
-{
+function getInfo() {
 
     let userName = document.getElementById('username').value;
     let classAndSection = document.getElementById('class-and-section').value;
@@ -42,6 +35,8 @@ function getInfo()
 
 
     if (userName !== '' && classAndSection !== '' && course !== '') {
+
+        generateRollno++;
 
         const studentInfo = {
             studentName: userName,
@@ -53,18 +48,18 @@ function getInfo()
         studentInformation.push(studentInfo);
         localStorage.setItem('student', JSON.stringify(studentInformation));
 
+        
         loadStudentData();
+        countStudent()
     }
 
-    generateRollno++;
 
     document.getElementById('username').value = '';
     document.getElementById('class-and-section').value = '';
     document.getElementById('course').value = '';
 }
 
-function deleteInfo()
-{
+function deleteInfo() {
 
     let serialNo = parseInt(document.getElementById('del-no').value, 10);
     let name = document.getElementById('del-name').value;
@@ -87,7 +82,82 @@ function deleteInfo()
 
     }
 
+    countStudent()
+
     document.getElementById('del-no').value = '';
     document.getElementById('del-name').value = '';
     document.getElementById('del-roll-no').value = '';
+}
+
+
+
+function countStudent() {
+    let totalStudent = document.getElementById('total-student');
+
+    let totalStudentClass11 = document.getElementById('total-student-class-11');
+    let totalStudentClass12 = document.getElementById('total-student-class-12');
+
+    let totalStudentPreMedical = document.getElementById('total-student-pre-medical');
+    let totalStudentPreEngineering = document.getElementById('total-student-pre-engineering');
+    let totalStudentComputerScience = document.getElementById('total-student-computer-science');
+    let totalStudentCommerce = document.getElementById('total-student-commerce');
+    let totalStudentHumanities = document.getElementById('total-student-humanities');
+    let totalStudentHomeconomics = document.getElementById('total-student-homeconomics');
+
+
+    let totalNumberOfStudent = 0;
+    let totalNumberOfStudentClass11 = 0;
+    let totalNumberOfStudentClass12 = 0;
+    let totalNumberOfStudentPreMedical = 0
+    let totalNumberOfStudentPreEngineering = 0
+    let totalNumberOfStudentComputerScience = 0
+    let totalNumberOfStudentCommerce = 0
+    let totalNumberOfStudenthumanities = 0
+    let totalNumberOfStudenthomeconomics = 0
+
+
+    for (const student of studentInformation) {
+
+
+        if (student.studentClassNSection.slice(0,2) == 11) {
+            totalNumberOfStudentClass11++
+        } else {
+            totalNumberOfStudentClass12++
+        }
+
+
+        if (student.studentCourse == 'PRE-MEDICAL') {
+            totalNumberOfStudentPreMedical++
+        } else if (student.studentCourse == 'PRE-ENGINEERING') {
+            totalNumberOfStudentPreEngineering++
+        } else if (student.studentCourse == 'COMPUTER SCIENCE') {
+            totalNumberOfStudentComputerScience++
+        } else if (student.studentCourse == 'COMMERCE') {
+            totalNumberOfStudentCommerce++
+        } else if (student.studentCourse == 'HUMANITES') {
+            totalNumberOfStudenthumanities++
+        } else {
+            totalNumberOfStudenthomeconomics++
+        }
+
+        totalNumberOfStudent++
+
+    }
+
+
+    totalStudent.textContent = totalNumberOfStudent
+
+    totalStudentClass11.textContent = totalNumberOfStudentClass11
+    totalStudentClass12.textContent = totalNumberOfStudentClass12
+
+    totalStudentPreMedical.textContent = totalNumberOfStudentPreMedical
+    totalStudentPreEngineering.textContent = totalNumberOfStudentPreEngineering
+    totalStudentComputerScience.textContent = totalNumberOfStudentComputerScience
+    totalStudentHomeconomics.textContent = totalNumberOfStudenthomeconomics
+    totalStudentCommerce.textContent = totalNumberOfStudentCommerce
+    totalStudentHumanities.textContent = totalNumberOfStudenthumanities
+
+    console.log(totalNumberOfStudent);
+    console.log(totalNumberOfStudentClass11);
+    console.log(totalNumberOfStudentClass12);
 }

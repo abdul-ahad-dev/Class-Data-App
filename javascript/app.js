@@ -1,3 +1,4 @@
+
 let studentInformation = JSON.parse(localStorage.getItem('student')) || [];
 let generateRollno = 20050001;
 

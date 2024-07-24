@@ -27,7 +27,7 @@
 <body class="bg-[#dadada] open-sans min-h-screen">
 
 
-
+    <!-- Get and Delete Student Data Section -->
     <div class="container p-4 mx-auto flex flex-wrap justify-center gap-x-3 ">
 
         <!-- Get Student Data Information Section -->
@@ -40,12 +40,14 @@
 
                 <div class="w-full p-1.5">
                     <p class="text-white text-xl ml-2 tracking-wider">Name</p>
-                    <input type="text" id="username"
-                        class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
+
+                    <input type="text" id="username" class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
                 </div>
 
                 <div class="w-full p-1.5">
+
                     <p class="text-white text-xl ml-2 tracking-wider">Class and Section</p>
+
                     <select name="" id="class-and-section"
                         class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
                         <option value="" disabled selected>Selected class</option>
@@ -56,6 +58,7 @@
                         <option value="12-N4 (7pm to 9pm)">12-N4 (7pm to 9pm)</option>
                         <option value="12-O6 (9pm to 11pm)">12-O6 (9pm to 11pm)</option>
                     </select>
+
                 </div>
 
                 <div class="w-full p-1.5">
@@ -72,8 +75,7 @@
                     </select>
                 </div>
 
-                <button type="button" id="submit-btn"
-                    class="align-middle select-none font-sans font-bold text-center uppercase tracking-widest transition-all text-md py-3 px-6 mt-3 rounded-lg bg-gray-900 text-white shadow-md active:bg-violet-700 shadow-gray-900/10">Enter</button>
+                <button type="button" id="submit-btn" class="align-middle select-none font-sans font-bold text-center uppercase tracking-widest transition-all text-md py-3 px-6 mt-3 rounded-lg bg-gray-900 text-white shadow-md active:bg-violet-700 shadow-gray-900/10">Enter</button>
             </div>
 
         </section>
@@ -90,24 +92,20 @@
 
                 <div class="w-full p-1.5">
                     <p class="text-white text-xl ml-2 tracking-wider">Serial No</p>
-                    <input type="text" id="del-no"
-                        class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
+                    <input type="text" id="del-no" class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
                 </div>
 
                 <div class="w-full p-1.5">
                     <p class="text-white text-xl ml-2 tracking-wider">Name</p>
-                    <input type="text" id="del-name"
-                        class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
+                    <input type="text" id="del-name" class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
                 </div>
 
                 <div class="w-full p-1.5">
                     <p class="text-white text-xl ml-2 tracking-wider">Roll No</p>
-                    <input type="text" id="del-roll-no"
-                        class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
+                    <input type="text" id="del-roll-no" class="block w-full px-4 py-2 rounded-xl border-0 outline-none text-gray-900 shadow-sm">
                 </div>
 
-                <button type="button" id="delete-btn"
-                    class="align-middle select-none font-sans font-bold text-center uppercase tracking-widest transition-all text-md py-3 px-6 mt-3 rounded-lg bg-gray-900 text-white shadow-md active:bg-violet-700 shadow-gray-900/10">Delete</button>
+                <button type="button" id="delete-btn" class="align-middle select-none font-sans font-bold text-center uppercase tracking-widest transition-all text-md py-3 px-6 mt-3 rounded-lg bg-gray-900 text-white shadow-md active:bg-violet-700 shadow-gray-900/10">Delete</button>
 
             </div>
 
@@ -118,7 +116,7 @@
 
 
 
-
+    <!-- Student Data Section -->
     <section class="my-16">
 
         <table class="md:w-5/6 mx-auto bg-white rounded-lg">
@@ -137,8 +135,6 @@
 
             <tbody class="bg-[#1f1f1f] text-[#dadada] text-center" id="student-data-container">
 
-
-
             </tbody>
 
         </table>
@@ -148,7 +144,7 @@
 
 
 
-
+    <!-- Student Statistics Section -->
     <section class="bg-[#87ceeb] w-5/6 my-32 mx-auto p-4 rounded-lg shadow-md">
 
         <table class="w-full text-[#000] table-auto">

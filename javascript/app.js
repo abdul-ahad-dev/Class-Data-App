@@ -158,7 +158,4 @@ function countStudent() {
     totalStudentCommerce.textContent = totalNumberOfStudentCommerce
     totalStudentHumanities.textContent = totalNumberOfStudenthumanities
 
-    console.log(totalNumberOfStudent);
-    console.log(totalNumberOfStudentClass11);
-    console.log(totalNumberOfStudentClass12);
 }
